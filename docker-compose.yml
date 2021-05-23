@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+    web:
+        build: .
+        ports: 
+            - "5000:5000"
+        restart: 'always'
+        depends_on: 
+            - redis
+        networks: 
+            - django_channels_net
+
+    redis: 
+        image: redis:alpine
+        networks: 
+            - django_channels_net
+
+networks: 
+    django_channels_net:
+        name: django_channels
+        driver: bridge
+
+  
