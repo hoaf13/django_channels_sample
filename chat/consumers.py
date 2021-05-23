@@ -38,7 +38,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 'message': message
             }
         )
-        delay = 5
+        delay = 0
         while delay:
             delay -= 1
             time.sleep(1)
